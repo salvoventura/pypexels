@@ -1,0 +1,46 @@
+engines:
+  duplication:
+    enabled: true
+    exclude_paths:
+      - "tests/"
+    config:
+      languages:
+        python:
+          mass_threshold: 100
+
+  fixme:
+    enabled: false
+    exclude_paths:
+      - "tests/"
+
+  markdownlint:
+    enabled: false
+
+  pep8:
+    enabled: true
+    exclude_paths:
+      - "tests/"
+    checks:
+      W391:
+        enabled: false
+      E501:
+        enabled: false
+      E302:
+        enabled: false
+      E303:
+        enabled: false
+
+  radon:
+    enabled: true
+    exclude_paths:
+      - "tests/"
+    config:
+      threshold: "C"
+
+ratings:
+  paths:
+  - "**.md"
+  - "**.py"
+
+exclude_paths:
+  - "docs/build/"

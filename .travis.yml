@@ -1,0 +1,28 @@
+language: python
+
+cache: pip
+
+python:
+  - "2.7"
+  - "pypy"
+
+before_install:
+  # install test dependencies
+  - pip install --upgrade codecov
+  - pip install --upgrade pytest-cov
+  - pip install --upgrade responses
+
+install:
+  # install dependencies
+  - pip install --upgrade requests
+  # important: install the library itself
+  - pip install --upgrade -e .
+
+script:
+  # run tests
+  py.test --cov pypexels --cov-report term-missing --cov-report xml
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports"
+  # codecov  # python specific?
+
