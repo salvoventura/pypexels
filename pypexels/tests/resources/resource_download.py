@@ -27,7 +27,6 @@ req_headers = {
 def _save_content(sub_url):
     url = '{}/{}{}'.format(API_ROOT, API_VERSION, sub_url)
     r = requests.get(url=url, headers=req_headers)
-    print r.status_code, r.content
 
     d_headers = dict(r.headers)
     del d_headers["Content-Encoding"]   # if anything compressed, this will break responses: remove

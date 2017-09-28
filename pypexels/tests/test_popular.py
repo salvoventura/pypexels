@@ -38,8 +38,6 @@ class TestPopular:
         resource_filepath = self.store_mapping[index]
         stored_response = json.loads(open(resource_filepath).read())
 
-        print '>>>> {}/{}{}'.format(API_ROOT, API_VERSION, stored_response.get('_url'))
-
         responses.add(
             responses.GET,
             '{}/{}{}'.format(API_ROOT, API_VERSION, stored_response.get('_url')),   # _url contains only the short path like /popular?page=2&per_page=5

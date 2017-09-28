@@ -68,7 +68,7 @@ class Rest(object):
 
         try:
             response = requests.request(method, req_url, params=query_params, data=data, headers=self.req_headers, **kwargs)
-        except Exception, e:
+        except Exception as e:
             raise PexelsError("Connection error: %s" % e)
 
         try:

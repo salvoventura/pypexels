@@ -120,10 +120,6 @@ class PexelsPage(Rest):
         return query_params
 
     def _parse_navigation(self):
-        """
-
-        :return: 
-        """
         nopaging_query_parameters = ['{}={}'.format(k, v) for k, v in self._query_parameters.items() if k not in ['page', 'per_page']]
         self.nopaging_url = '?'.join([self._url, '&'.join(nopaging_query_parameters)])
         self.page = int(self.body.get('page', 1))
