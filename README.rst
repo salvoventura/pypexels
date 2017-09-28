@@ -6,7 +6,7 @@ PyPexels
 An open source Python wrapper for the `Pexels REST API <https://www.pexels.com/api/>`_.
 The source code is available on GitHub at `https://github.com/salvoventura/pypexels <https://github.com/salvoventura/pypexels>`_.
 
-.. note:: Note that using this library you still need to abide to Pexels Guidelines, which are explained on `Pexels API page <https://www.pexels.com/api/>`_
+.. note::  When using this library you still need to abide to Pexels Guidelines, which are explained on `Pexels API page <https://www.pexels.com/api/>`_
 
 
 ############
