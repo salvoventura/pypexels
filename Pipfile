@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 requests = "~=2.19"
+future = "*"
 
 [dev-packages]
 codecov = "~=2.0"

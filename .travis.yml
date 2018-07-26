@@ -5,16 +5,25 @@ cache: pip
 python:
     - "2.7"
     - "3.6"
-    - "3.7"
+    - "3.7" # Currently expected to fail [1]
+    - "nightly" # Currently expected to fail [1]
     - "pypy"
-    - "nightly"
+    - "pypy3"
+    # [1] https://docs.travis-ci.com/user/languages/python/
+    #     Recent Python branches require OpenSSL 1.0.2+.
+    #     As this library is not available for Trusty,
+    #     3.7, 3.7-dev, 3.8-dev, and nightly do not work
+    #     (or use outdated archive).
+
+before_install:
+    - bash python2-ci.sh
 
 install:
     - pip install pipenv==2018.7.1
-    - pipenv install --dev --system
+    - pipenv install --dev
 
 script:
-    - pytest --cov pypexels --cov-report term-missing --cov-report xml
+    - pipenv run pytest --cov pypexels --cov-report term-missing --cov-report xml
 
 after_success:
     - bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports"
