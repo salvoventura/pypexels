@@ -1,0 +1,12 @@
+[build-system]
+requires = ["flit"]
+build-backend = "flit.buildapi"
+
+[tool.flit.metadata]
+module = "pypexels"
+dist-name = "pypexels_l5"
+author = "Josh Klar"
+author-email = "josh@lumen5.com"
+home-page = "https://github.com/Lumen5/pypexels_l5"
+classifiers = ["License :: OSI Approved :: MIT License"]
+requires = ["requests~=2.19"]

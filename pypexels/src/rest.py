@@ -11,6 +11,7 @@
 #   Comment: What's new in revision 1
 #
 ###############################################################################
+from builtins import object
 import requests
 
 from .errors import PexelsError
@@ -44,7 +45,7 @@ class Rest(object):
             return ''
 
         tmp = []
-        for k, v in query_parameters.items():
+        for k, v in list(query_parameters.items()):
             if v is None:
                 continue
             tmp.append('{}={}'.format(k, v))
@@ -80,7 +81,7 @@ class Rest(object):
                     'HTTP status %s: %s', self._status_code, self._body.get('errors', ['No error message'])
                 )
 
-        except ValueError, e:
+        except ValueError as e:
             logger.error('EXCEPTION: %s', e)
             if self._status_code != requests.codes.ok:
                 logger.error('HTTP EXC status %s: %s', self._status_code, response.text)

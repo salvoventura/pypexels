@@ -3,26 +3,20 @@ language: python
 cache: pip
 
 python:
-  - "2.7"
-  - "pypy"
-
-before_install:
-  # install test dependencies
-  - pip install --upgrade codecov
-  - pip install --upgrade pytest-cov
-  - pip install --upgrade responses
+    - "2.7"
+    - "3.6"
+    - "3.7"
+    - "pypy"
+    - "nightly"
 
 install:
-  # install dependencies
-  - pip install --upgrade requests
-  # important: install the library itself
-  - pip install --upgrade -e .
+    - pip install pipenv==2018.7.1
+    - pipenv install --dev --system
 
 script:
-  # run tests
-  py.test --cov pypexels --cov-report term-missing --cov-report xml
+    - pytest --cov pypexels --cov-report term-missing --cov-report xml
 
 after_success:
-  - bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports"
-  # codecov  # python specific?
+    - bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports"
+    # codecov  # python specific?
 

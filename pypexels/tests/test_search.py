@@ -1,3 +1,4 @@
+from __future__ import print_function
 ###############################################################################
 #    Copyright (c) 2017 Salvatore Ventura <salvoventura@gmail.com>
 #
@@ -11,6 +12,7 @@
 #   Comment: What's new in revision 1
 #
 ###############################################################################
+from builtins import object
 import responses
 import json
 import os
@@ -20,7 +22,7 @@ from pypexels.src.settings import API_ROOT, API_VERSION
 api_key = os.environ.get('API_KEY', None) or 'API_KEY'
 
 
-class TestSearch:
+class TestSearch(object):
     # TODO: avoid code duplication
     # Need to workout how to combine responses.activate so as to avoid
     # code duplication, as the testcases are pretty much the same for all
@@ -51,17 +53,17 @@ class TestSearch:
         search_results_page = py_pexels.search(query='red flower', page=2, per_page=5)
 
         # Page properties
-        print search_results_page.page
-        print search_results_page.per_page
-        print search_results_page.has_next
-        print search_results_page.has_previous
-        print search_results_page.link_self
-        print search_results_page.link_first
-        print search_results_page.link_last
-        print search_results_page.link_next
-        print search_results_page.link_previous
+        print(search_results_page.page)
+        print(search_results_page.per_page)
+        print(search_results_page.has_next)
+        print(search_results_page.has_previous)
+        print(search_results_page.link_self)
+        print(search_results_page.link_first)
+        print(search_results_page.link_last)
+        print(search_results_page.link_next)
+        print(search_results_page.link_previous)
 
         # Entries
         for photo in search_results_page.entries:
-            print photo.id, photo.photographer, photo.width, photo.height, photo.url
-            print photo.src
+            print(photo.id, photo.photographer, photo.width, photo.height, photo.url)
+            print(photo.src)

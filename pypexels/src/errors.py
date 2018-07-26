@@ -13,6 +13,7 @@
 ###############################################################################
 
 
+from builtins import str
 class PexelsError(Exception):
 
     def __init__(self, message):

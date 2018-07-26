@@ -13,8 +13,9 @@
 ###############################################################################
 
 """An open source Python wrapper for the Unsplash REST API"""
+from __future__ import absolute_import
 
-from pypexels import PyPexels
+from .pypexels import PyPexels
 # TRAVIS_BUILD_NUMBER
 # TRAVIS_COMMIT
 # TRAVIS_COMMIT_RANGE

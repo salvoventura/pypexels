@@ -12,6 +12,7 @@
 #
 ###############################################################################
 # from .src.liblogging import logger
+from builtins import object
 from .src import API_VERSION, LIB_NAME
 from .src import Popular
 from .src import Search

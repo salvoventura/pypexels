@@ -1,3 +1,4 @@
+from __future__ import print_function
 ###############################################################################
 #    Copyright (c) 2017 Salvatore Ventura <salvoventura@gmail.com>
 #
@@ -42,7 +43,7 @@ py_pexel = PyPexels(api_key=api_key)
 popular_photos_page = py_pexel.popular(per_page=40)
 while True:
     for photo in popular_photos_page.entries:
-        print(photo.id, photo.photographer, photo.url)
+        print((photo.id, photo.photographer, photo.url))
     if not popular_photos_page.has_next:
         break
     popular_photos_page = popular_photos_page.get_next_page()

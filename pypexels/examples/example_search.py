@@ -1,3 +1,4 @@
+from __future__ import print_function
 ###############################################################################
 #    Copyright (c) 2017 Salvatore Ventura <salvoventura@gmail.com>
 #
@@ -42,7 +43,7 @@ py_pexel = PyPexels(api_key=api_key)
 search_results_page = py_pexel.search(query='red flowers', per_page=40)
 while True:
     for photo in search_results_page.entries:
-        print(photo.id, photo.photographer, photo.url)
+        print((photo.id, photo.photographer, photo.url))
     if not search_results_page.has_next:
         break
     search_results_page = search_results_page.get_next_page()

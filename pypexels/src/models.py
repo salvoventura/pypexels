@@ -14,6 +14,7 @@
 ###############################################################################
 
 
+from builtins import object
 class Photo(object):
 
     @classmethod
@@ -27,6 +28,6 @@ class Photo(object):
         """
         data = data or {}
         photo = cls() if data else None
-        for key, value in data.items():
+        for key, value in list(data.items()):
             setattr(photo, key, value)
         return photo
