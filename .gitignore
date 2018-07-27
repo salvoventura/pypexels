@@ -2,3 +2,6 @@
 *.swp
 *.bak
 dist/
+.coverage
+coverage.xml
+.pytest*
