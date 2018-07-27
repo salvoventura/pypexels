@@ -1,0 +1,45 @@
+version: 2
+workflows:
+    version: 2
+    main:
+        jobs:
+            - test_py27
+            - test_py36
+            - test_py37
+            - test_pypy3
+
+jobs:
+    test_py27:
+        docker:
+            - image: python:2.7.15-alpine3.8
+        steps:
+            - checkout
+            - run: cat Pipfile | grep -v flit > Pipfile2
+            - run: mv Pipfile2 Pipfile
+            - run: pip install pipenv
+            - run: pipenv --python $(which python) install --dev
+            - run: pipenv run pytest --cov pypexels --cov-report term-missing --cov-report xml
+    test_py36:
+        docker:
+            - image: python:3.6.6-alpine3.8
+        steps:
+            - checkout
+            - run: pip install pipenv
+            - run: pipenv --python $(which python) install --dev
+            - run: pipenv run pytest --cov pypexels --cov-report term-missing --cov-report xml
+    test_py37:
+        docker:
+            - image: python:3.7.0-alpine3.8
+        steps:
+            - checkout
+            - run: pip install pipenv
+            - run: pipenv --python $(which python) install --dev
+            - run: pipenv run pytest --cov pypexels --cov-report term-missing --cov-report xml
+    test_pypy3:
+        docker:
+            - image: pypy:3-6.0.0-slim
+        steps:
+            - checkout
+            - run: pip install pipenv
+            - run: pipenv --python $(which pypy3) install --dev
+            - run: pipenv run pytest --cov pypexels --cov-report term-missing --cov-report xml
