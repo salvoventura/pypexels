@@ -120,7 +120,8 @@ class PexelsPage(Rest):
         return query_params
 
     def _parse_navigation(self):
-        nopaging_query_parameters = ['{}={}'.format(k, v) for k, v in self._query_parameters.items() if k not in ['page', 'per_page']]
+        nopaging_query_parameters = ['{}={}'.format(k, v) for k, v in self._query_parameters.items() if
+                                     k not in ['page', 'per_page']]
         self.nopaging_url = '?'.join([self._url, '&'.join(nopaging_query_parameters)])
         self.page = int(self.body.get('page', 1))
         self.per_page = int(self.body.get('per_page', 15))
@@ -131,7 +132,8 @@ class PexelsPage(Rest):
             'first': '%s&per_page=%s&page=%s' % (self.nopaging_url, self.per_page, 1),
             'prev': self.body.get('prev_page', None),
             'next': self.body.get('next_page', None),
-            'last': '%s&per_page=%s&page=%s' % (self.nopaging_url, self.per_page, self.total_results/self.per_page + 1),
+            'last': '%s&per_page=%s&page=%s' % (
+            self.nopaging_url, self.per_page, self.total_results / self.per_page + 1),
         }
 
     def _ret_link(self, which):

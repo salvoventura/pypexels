@@ -40,7 +40,8 @@ extensions = [
 ]
 
 # autosummary_generate = False
-# Boolean indicating whether to scan all found documents for autosummary directives, and to generate stub pages for each.
+# Boolean indicating whether to scan all found documents for autosummary directives,
+# and to generate stub pages for each.
 # Can also be a list of documents for which stub pages should be generated.
 # The new files will be placed in the directories specified in the :toctree: options of the directives.
 autosummary_generate = True
@@ -135,10 +136,10 @@ todo_include_todos = False
 #
 # html_theme = 'alabaster'
 # html_theme = 'classic'
-html_theme = 'sphinxdoc'
-html_theme = 'scrolls'
-html_theme = 'agogo'
-html_theme = 'nature'
+# html_theme = 'sphinxdoc'
+# html_theme = 'scrolls'
+# html_theme = 'agogo'
+# html_theme = 'nature'
 html_theme = 'sphinx_rtd_theme'
 
 

@@ -11,6 +11,7 @@
 #   Comment: What's new in revision 1
 #
 ###############################################################################
+from __future__ import print_function
 import responses
 import json
 import os
@@ -29,7 +30,8 @@ class TestSearch:
     root_path = os.environ.get('TRAVIS_BUILD_DIR', None) or os.environ.get('TOXINIDIR', None)
 
     store_mapping = {
-        'redflower': os.sep.join([root_path, 'pypexels', 'tests', 'resources', 'resource__search_per_page_5_page_2_query_red_flower.json']),
+        'redflower': os.sep.join(
+            [root_path, 'pypexels', 'tests', 'resources', 'resource__search_per_page_5_page_2_query_red_flower.json']),
     }
 
     @responses.activate
@@ -40,7 +42,8 @@ class TestSearch:
 
         responses.add(
             responses.GET,
-            '{}/{}{}'.format(API_ROOT, API_VERSION, stored_response.get('_url')),   # _url contains only the short path like /popular?page=2&per_page=5
+            '{}/{}{}'.format(API_ROOT, API_VERSION, stored_response.get('_url')),
+            # _url contains only the short path like /popular?page=2&per_page=5
             json=stored_response.get('body'),
             status=stored_response.get('status_code'),
             content_type='application/json',
@@ -51,17 +54,17 @@ class TestSearch:
         search_results_page = py_pexels.search(query='red flower', page=2, per_page=5)
 
         # Page properties
-        print search_results_page.page
-        print search_results_page.per_page
-        print search_results_page.has_next
-        print search_results_page.has_previous
-        print search_results_page.link_self
-        print search_results_page.link_first
-        print search_results_page.link_last
-        print search_results_page.link_next
-        print search_results_page.link_previous
+        print(search_results_page.page)
+        print(search_results_page.per_page)
+        print(search_results_page.has_next)
+        print(search_results_page.has_previous)
+        print(search_results_page.link_self)
+        print(search_results_page.link_first)
+        print(search_results_page.link_last)
+        print(search_results_page.link_next)
+        print(search_results_page.link_previous)
 
         # Entries
         for photo in search_results_page.entries:
-            print photo.id, photo.photographer, photo.width, photo.height, photo.url
-            print photo.src
+            print(photo.id, photo.photographer, photo.width, photo.height, photo.url)
+            print(photo.src)

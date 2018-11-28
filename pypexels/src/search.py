@@ -29,7 +29,8 @@ class Search(PexelsPage):
             raise PexelsError('Parameter "query" is mandatory for class Search()')
 
         valid_options = ['page', 'per_page', 'query']
-        super(Search, self).__init__(url=url, api_key=api_key, api_version=api_version, valid_options=valid_options, **kwargs)
+        super(Search, self).__init__(url=url, api_key=api_key, api_version=api_version, valid_options=valid_options,
+                                     **kwargs)
 
     @property
     def entries(self):
