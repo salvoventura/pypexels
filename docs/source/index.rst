@@ -15,6 +15,7 @@ The source code is available on GitHub at `https://github.com/salvoventura/pypex
     classes/class_pypexels
     classes/class_popular
     classes/class_search
+    classes/class_random
     classes/class_photo
     version
     license
