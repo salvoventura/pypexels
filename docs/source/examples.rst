@@ -49,3 +49,23 @@ each, retrieve each photo in there, and print some of their attributes.
         if not search_results.has_next:
             break
         search_results = search_results.get_next_page()
+
+
+======
+Random
+======
+The code below will return random images. Use the parameter ``per_page`` to specify how many random images the iterator
+will allow.
+
+.. code-block:: python
+
+    from pypexels import PyPexels
+    api_key = 'YOUR_API_KEY'
+
+    # instantiate PyPexels object
+    py_pexel = PyPexels(api_key=api_key)
+
+    random_photos_page = py_pexel.random(per_page=3)
+    for photo in random_photos_page.entries:
+        print(photo.id, photo.photographer, photo.url)
+

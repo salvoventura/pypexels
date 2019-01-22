@@ -64,7 +64,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'PyPexels'
-copyright = u'2017 Salvatore Ventura'
+copyright = u'2017,2018,2019 Salvatore Ventura'
 author = u'Salvatore Ventura'
 
 # The version info for the project you're documenting, acts as replacement for

@@ -12,9 +12,12 @@
 #
 ###############################################################################
 # from .src.liblogging import logger
+from random import randint
 from .src import API_VERSION, LIB_NAME
 from .src import Popular
+from .src import Curated
 from .src import Search
+from .src import Random
 
 
 class PyPexels(object):
@@ -27,6 +30,11 @@ class PyPexels(object):
     def popular(self, **kwargs):
         return Popular(api_key=self.api_key, api_version=self.api_version, **kwargs)
 
+    def curated(self, **kwargs):
+        return Curated(api_key=self.api_key, api_version=self.api_version, **kwargs)
+
     def search(self, **kwargs):
         return Search(api_key=self.api_key, api_version=self.api_version, **kwargs)
 
+    def random(self, **kwargs):
+        return Random(api_key=self.api_key, api_version=self.api_version, **kwargs)

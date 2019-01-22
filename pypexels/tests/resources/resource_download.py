@@ -53,6 +53,11 @@ def get_resources_popular():
         _save_content(sub_url)
 
 
+def get_resources_curated():
+    for sub_url in ['/curated?per_page=5&page=2']:
+        _save_content(sub_url)
+
+
 def get_resources_search():
     for sub_url in ['/search?per_page=5&page=2&query=red+flower']:
         _save_content(sub_url)
@@ -60,6 +65,7 @@ def get_resources_search():
 
 def main():
     get_resources_popular()
+    get_resources_curated()
     get_resources_search()
 
 

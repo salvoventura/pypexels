@@ -13,5 +13,7 @@
 ###############################################################################
 from .errors import PexelsError
 from .popular import Popular
+from .curated import Curated
 from .search import Search
+from .random_ import Random
 from .settings import API_VERSION, API_ROOT, LIB_NAME, LOG_LEVEL
