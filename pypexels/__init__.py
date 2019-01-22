@@ -18,6 +18,6 @@ from .pypexels import PyPexels
 # TRAVIS_COMMIT
 # TRAVIS_COMMIT_RANGE
 # TRAVIS_TAG
-__version__ = '1.0.0b2'
+__version__ = '1.0.0b3'
 __author__ = 'Salvatore Ventura <salvoventura@gmail.com>'
 __license__ = 'MIT'
