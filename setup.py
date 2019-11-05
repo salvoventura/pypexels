@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name='pypexels',
-    version='1.0.0b3',
+    version='1.0.0b4',
     packages=['pypexels', 'pypexels.src'],
     url='https://github.com/salvoventura/pypexels',
     license='MIT',
