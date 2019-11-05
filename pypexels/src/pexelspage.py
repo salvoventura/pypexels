@@ -36,9 +36,12 @@ class PexelsPage(Rest):
         self._navigation = None
 
         # Load the page at the given URL, and if status OK, parse it too
+        # otherwise raise an exception with the status_code. (Issue#7)
         self._response = self.get(self._url, self._query_parameters)
         if self._status_code == 200:
             self._parse_navigation()
+        else:
+            raise PexelsError('PexelsPage: REST request failed with status code %s' % self._status_code)
 
     @property
     def body(self):
