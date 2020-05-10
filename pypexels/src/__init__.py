@@ -16,4 +16,8 @@ from .popular import Popular
 from .curated import Curated
 from .search import Search
 from .random_ import Random
+from .videos_search import VideosSearch
+from .videos_popular import VideosPopular
+from .single_video import SingleVideo
+from .single_photo import SinglePhoto
 from .settings import API_VERSION, API_ROOT, LIB_NAME, LOG_LEVEL
