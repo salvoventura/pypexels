@@ -26,6 +26,8 @@ req_headers = {
 
 def _save_content(sub_url):
     url = '{}/{}{}'.format(API_ROOT, API_VERSION, sub_url)
+    if 'videos' in sub_url:
+        url = '{}{}'.format(API_ROOT, sub_url)
     r = requests.get(url=url, headers=req_headers)
 
     d_headers = dict(r.headers)
@@ -63,10 +65,22 @@ def get_resources_search():
         _save_content(sub_url)
 
 
+def get_resources_video_search():
+    for sub_url in ['/videos/search?per_page=5&page=2&query=red+flower']:
+        _save_content(sub_url)
+
+
+def get_resources_video_popular():
+    for sub_url in ['/videos/popular?per_page=5&page=2']:
+        _save_content(sub_url)
+
+
 def main():
     get_resources_popular()
     get_resources_curated()
     get_resources_search()
+    get_resources_video_search()
+    get_resources_video_popular()
 
 
 if __name__ == '__main__':

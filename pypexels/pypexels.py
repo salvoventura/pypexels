@@ -18,6 +18,10 @@ from .src import Popular
 from .src import Curated
 from .src import Search
 from .src import Random
+from .src import SinglePhoto
+from .src import SingleVideo
+from .src import VideosSearch
+from .src import VideosPopular
 
 
 class PyPexels(object):
@@ -27,6 +31,7 @@ class PyPexels(object):
         self.api_key = api_key
         self.api_version = api_version
 
+    # Photos
     def popular(self, **kwargs):
         return Popular(api_key=self.api_key, api_version=self.api_version, **kwargs)
 
@@ -38,3 +43,18 @@ class PyPexels(object):
 
     def random(self, **kwargs):
         return Random(api_key=self.api_key, api_version=self.api_version, **kwargs)
+
+    def single_photo(self, photo_id):
+        sp = SinglePhoto(api_key=self.api_key, photo_id=photo_id, api_version=self.api_version)
+        return sp.entries
+
+    # Videos
+    def videos_popular(self, **kwargs):
+        return VideosPopular(api_key=self.api_key, api_version=self.api_version, **kwargs)
+
+    def videos_search(self, **kwargs):
+        return VideosSearch(api_key=self.api_key, api_version=self.api_version, **kwargs)
+
+    def single_video(self, video_id):
+        sv = SingleVideo(api_key=self.api_key, video_id=video_id, api_version=self.api_version)
+        return sv.entries

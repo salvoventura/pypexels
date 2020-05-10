@@ -54,6 +54,8 @@ class Rest(object):
         logger.debug('Call _sanitized_url(%s)', url)
         if url.startswith(self.api_root):
             good_url = url
+        elif url.startswith('/videos'):
+            good_url = '{}{}'.format(self.api_root, url)
         elif url.startswith('/'):
             good_url = '{}/{}{}'.format(self.api_root, self.api_version, url)
         else:
