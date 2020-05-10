@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name='pypexels',
-    version='1.0.0b4',
+    version='1.0.0rc1',
     packages=['pypexels', 'pypexels.src'],
     url='https://github.com/salvoventura/pypexels',
     license='MIT',
@@ -27,7 +27,9 @@ setup(
                       # that you indicate whether you support Python 2, Python 3 or both.
                       'Programming Language :: Python :: 2.7',
                       'Programming Language :: Python :: 3.5',
-                      'Programming Language :: Python :: 3.6'
+                      'Programming Language :: Python :: 3.6',
+                      'Programming Language :: Python :: 3.7',
+                      'Programming Language :: Python :: 3.8'
                   ],
     keywords=['pexels', 'rest', 'api', 'python', 'wrapper', 'development', 'pexels.com', 'photography'],
     install_requires=['requests'],

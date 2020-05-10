@@ -70,7 +70,7 @@ Version
     * Introduction of `get_attribution()` method on `Photo` and `Video` classes
       * This simplifies crediting the author
     * Fix some documentation issues
-    * Extend Travis and Tox test coverage to include Python3.6, 3.7 and 3.8
+    * Extend Travis and Tox test coverage to include Python 3.6, 3.7 and 3.8
 
 **PyPexels v1.0.0b4 (beta, v4)**
 
