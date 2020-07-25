@@ -38,6 +38,12 @@ class BaseModel(object):
             setattr(base_object, key, value)
         return base_object
 
+    def __eq__(self, id):
+        return self.id == id
+
+    def __hash__(self):
+        return hash(self.id)
+
 
 class Photo(BaseModel):
     def get_attribution(self, _format='txt'):
